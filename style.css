@@ -1,6 +1,15 @@
 @charset "utf-8";
 /* CSS Document */
-
+ul.social_icons li a {
+	transition: opacity 0.1s;
+}
+.social_icons i {
+	border-radius: 50%;
+	font-size: 0.5em;
+	color: #000;
+	background-color: #FFF;
+	padding: 0.45em;
+}
 body {
 	margin:0;
 	padding:0;
@@ -262,6 +271,7 @@ ul {
     width: 100%;
 	outline:none;
 	margin-bottom:10px;
+	resize: vertical;
 }
 
 .form-wrapper-01 .button {
