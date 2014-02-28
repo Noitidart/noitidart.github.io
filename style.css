@@ -10,6 +10,23 @@ ul.social_icons li a {
 	background-color: #FFF;
 	padding: 0.45em;
 }
+
+.content-2 h5 {
+	float: right;
+	vertical-align: middle;
+	background-color: #F47564; /*#59c4bc;*/
+	padding: 0px 4px;
+	border-radius: 2px;
+	margin-left: 3px;
+	color: #fff;
+	cursor: pointer;
+}
+
+.content-2 h5:first-of-type {
+	background-color: #59c4bc;
+	color: #000;
+}
+
 body {
 	margin:0;
 	padding:0;
