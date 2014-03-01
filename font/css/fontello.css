@@ -1,10 +1,10 @@
 @font-face {
-  font-family: 'httpsgithubglobalsslfastlynetassetsocticons-60ea98c9292f725220220d571a41aa049165053cwoff';
-  src: url('../font/httpsgithubglobalsslfastlynetassetsocticons-60ea98c9292f725220220d571a41aa049165053cwoff.eot?80261187');
-  src: url('../font/httpsgithubglobalsslfastlynetassetsocticons-60ea98c9292f725220220d571a41aa049165053cwoff.eot?80261187#iefix') format('embedded-opentype'),
-       url('../font/httpsgithubglobalsslfastlynetassetsocticons-60ea98c9292f725220220d571a41aa049165053cwoff.woff?80261187') format('woff'),
-       url('../font/httpsgithubglobalsslfastlynetassetsocticons-60ea98c9292f725220220d571a41aa049165053cwoff.ttf?80261187') format('truetype'),
-       url('../font/httpsgithubglobalsslfastlynetassetsocticons-60ea98c9292f725220220d571a41aa049165053cwoff.svg?80261187#httpsgithubglobalsslfastlynetassetsocticons-60ea98c9292f725220220d571a41aa049165053cwoff') format('svg');
+  font-family: 'fontello';
+  src: url('../font/fontello.eot?34963740');
+  src: url('../font/fontello.eot?34963740#iefix') format('embedded-opentype'),
+       url('../font/fontello.woff?34963740') format('woff'),
+       url('../font/fontello.ttf?34963740') format('truetype'),
+       url('../font/fontello.svg?34963740#fontello') format('svg');
   font-weight: normal;
   font-style: normal;
 }
@@ -13,14 +13,14 @@
 /*
 @media screen and (-webkit-min-device-pixel-ratio:0) {
   @font-face {
-    font-family: 'httpsgithubglobalsslfastlynetassetsocticons-60ea98c9292f725220220d571a41aa049165053cwoff';
-    src: url('../font/httpsgithubglobalsslfastlynetassetsocticons-60ea98c9292f725220220d571a41aa049165053cwoff.svg?80261187#httpsgithubglobalsslfastlynetassetsocticons-60ea98c9292f725220220d571a41aa049165053cwoff') format('svg');
+    font-family: 'fontello';
+    src: url('../font/fontello.svg?34963740#fontello') format('svg');
   }
 }
 */
  
  [class^="icon-"]:before, [class*=" icon-"]:before {
-  font-family: "httpsgithubglobalsslfastlynetassetsocticons-60ea98c9292f725220220d571a41aa049165053cwoff";
+  font-family: "fontello";
   font-style: normal;
   font-weight: normal;
   speak: none;

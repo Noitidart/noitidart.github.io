@@ -5,10 +5,11 @@ ul.social_icons li a {
 }
 .social_icons i {
 	border-radius: 50%;
-	font-size: 0.5em;
+	font-size: 16px;
 	color: #000;
 	background-color: #FFF;
-	padding: 0.45em;
+	padding: 7px;
+	margin: 0 7px;
 }
 
 .content-2 h5 {
