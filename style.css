@@ -131,7 +131,7 @@ ul {
 .css3 { width: 40%; }
 .css3 > span { background:#fed201; }
 .git { width: 25%; }
-.git > span { background:#DA81F5; }
+.git > span { background:#E2A9F3; }
 .html5 { width: 70%; }
 .html5 > span { background:#14bad4; }
 .javascript { width: 90%; }
@@ -286,6 +286,7 @@ ul {
 .form-wrapper-01 {
     margin: 0;
     padding: 10px 0;
+	text-align: center; /*centers the send button*/
 }
 .form-wrapper-01 .inputbox {
     border: 1px solid #eaedf2;
@@ -296,8 +297,24 @@ ul {
     width: 100%;
 	outline:none;
 	margin-bottom:10px;
-    font-family: "Open Sans",sans-serif;
+	font-family: "Open Sans",sans-serif;
 }
+
+.form-wrapper-01 *[class*=box]::-webkit-input-placeholder { color:rgba(0,0,0,.5); }
+.form-wrapper-01 *[class*=box]:-moz-placeholder { color:rgba(0,0,0,.5); }
+.form-wrapper-01 *[class*=box]::-moz-placeholder { color:rgba(0,0,0,.5); }
+.form-wrapper-01 *[class*=box]:-ms-input-placeholder { color:rgba(0,0,0,.5); }
+
+.form-wrapper-01 .inputbox[placeholder="Your Name"] {
+	text-indent: 32px;
+	background: url('img/your_name.png') no-repeat scroll 9px center #EAEDF2;
+}
+
+.form-wrapper-01 .inputbox[placeholder="Your Email"] {
+	text-indent: 32px;
+	background: url('img/your_email.png') no-repeat scroll 9px center #EAEDF2; /*for x =(textindent/2) - Math.ceil(imgWidth/2) do math.ceil because when i made the image it was not perfectly center it was 1px heavier on left*/
+}
+
 .form-wrapper-01 .message_box {
     border: 1px solid #eaedf2;
 	background:#eaedf2;
@@ -316,11 +333,31 @@ ul {
     border-radius: 4px 4px 4px 4px;
     color: #FFFFFF;
     cursor: pointer;
-    font-family: "Open Sans",sans-serif;
+    font-family: inherit;
     font-size: 15px;
     font-weight: 700;
     padding: 10px 20px;
+	
+	text-decoration: none;
+	display: inline-block;
+	text-align: center;
 }
+
+.form-wrapper-01 .button:after {
+	content: '\e80e';
+	font-family: "fontello";
+	font-weight: normal;
+	font-size: 20px;
+	position: relative;
+	top:1px;
+	left:4px;
+	padding-right: 6px;
+}
+
+.form-wrapper-01 .button  i {
+	font-size: 20px;
+}
+
 .form-wrapper-01 .button:hover {
 	background:#0e778a;
 }

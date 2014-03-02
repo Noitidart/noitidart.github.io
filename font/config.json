@@ -2917,12 +2917,6 @@
       "src": "entypo"
     },
     {
-      "uid": "db112402805d9dadc01ce009fbfdb914",
-      "css": "paper-plane",
-      "code": 59406,
-      "src": "entypo"
-    },
-    {
       "uid": "d090355c31f497b61d676416c1fd39fb",
       "css": "twitter",
       "code": 59403,
@@ -2953,6 +2947,12 @@
       "src": "typicons"
     },
     {
+      "uid": "86ee1fc7ff57e9c9c60d8a5e57183776",
+      "css": "user",
+      "code": 59412,
+      "src": "iconic"
+    },
+    {
       "uid": "9ea28ba01d59a4410fa3db9c02cce157",
       "css": "github",
       "code": 59397,
@@ -2969,6 +2969,12 @@
       "css": "github-circled",
       "code": 59396,
       "src": "zocial"
+    },
+    {
+      "uid": "6fbd93c0d220507921015a15575009e5",
+      "css": "paper-plane",
+      "code": 59406,
+      "src": "linecons"
     },
     {
       "uid": "fd3128bf109153952b1b775ea574504b",

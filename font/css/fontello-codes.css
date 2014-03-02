@@ -10,12 +10,13 @@
 .icon-mail:before { content: '\e808'; } /* '' */
 .icon-trophy:before { content: '\e807'; } /* '' */
 .icon-firefox:before { content: '\e800'; } /* '' */
-.icon-twitter:before { content: '\e80b'; } /* '' */
 .icon-facebook:before { content: '\e80a'; } /* '' */
 .icon-gplus:before { content: '\e809'; } /* '' */
 .icon-google-circles:before { content: '\e80d'; } /* '' */
 .icon-pinterest:before { content: '\e80c'; } /* '' */
+.icon-user:before { content: '\e814'; } /* '' */
 .icon-github:before { content: '\e805'; } /* '' */
 .icon-git:before { content: '\e803'; } /* '' */
 .icon-github-circled:before { content: '\e804'; } /* '' */
 .icon-paper-plane:before { content: '\e80e'; } /* '' */
+.icon-twitter:before { content: '\e80b'; } /* '' */
