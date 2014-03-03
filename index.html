@@ -7,6 +7,7 @@
 		<link rel="stylesheet" type="text/css" href="font/css/fontello.css" />
 		<script type="text/javascript" src="js/modernizr.custom.04022.js"></script>
 		<link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,400,600,700' rel='stylesheet' type='text/css'>
+		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
 		<script type="text/javascript">
 			var _gaq = _gaq || [];
 			_gaq.push(['_setAccount', 'UA-48501852-1']);
@@ -60,41 +61,42 @@
             <p>Find all my released addons here.</p>
           </div>
           <div class="content-2">
-            <h5 class="selected">General</h5>
-			<h5>Firefox</h5>
-			<h5>Javascript</h5>
+			<input id="tab-2-tab-1" type="radio" name="tab-2-radio-set" class="tab-2-tab-selector-1" checked="checked" />
+			<label for="tab-2-tab-1" class="tab-2-tab-label-1">General</label>
+			<input id="tab-2-tab-2" type="radio" name="tab-2-radio-set" class="tab-2-tab-selector-2" />
+			<label for="tab-2-tab-2" class="tab-2-tab-label-2">Firefox</label>
+			<input id="tab-2-tab-3" type="radio" name="tab-2-radio-set" class="tab-2-tab-selector-3" />
+			<label for="tab-2-tab-3" class="tab-2-tab-label-3">Javascript</label>
 			<h2>My Skills</h2>
-            <ul class="skillset">
-			  <li><span class="skill css3"><span></span></span><span>CSS 3</span></li>
-			  <li><span class="skill html5"><span></span></span><span>HTML 5</span></li>
-			  <li><span class="skill git"><span></span></span><span>Git & GitHub</span></li>
-			  <li><span class="skill javascript"><span></span></span><span>Javascript</span></li>
-			  <li><span class="skill sql"><span></span></span><span>MySQL, SQL, SQLite</span></li>
-			  <li><span class="skill npp"><span></span></span><span>Notepad++</span></li>
-			  <li><span class="skill php"><span></span></span><span>PHP</span></li>
-			  <li><span class="skill vb"><span></span></span><span>Visual Basic 6.0 & VBA</span></li>
-            </ul>
-			<!--
-            <h3>Firefox Specific</h3>
-            <ul class="skillset">
-              <li><span class="expand html5">nsIWindowsMediatorService</span></li>
-              <li><span class="expand css3">nsIPromptService</span></li>
-              <li><span class="expand jquery">nsIHttpChannel</span></li>
-              <li><span class="expand photoshop">cTypes</span></li>
-              <li><span class="expand dreamweaver">Bootstrap</span></li>
-			  <li><span class="expand dreamweaver">nsIZipWriter</span></li>
-			  <li><span class="expand dreamweaver"></span><span class="expand" style="text-overflow:ellipsis; overflow:hidden; white-space:nowrap; width:97%;">nsIXMLHttpRequest, nsIXMLHttpRequestEventTarget, & nsIJSXMLHttpRequest</span></li>
-			  <li><span class="expand dreamweaver">nsITimer</span></li>
-            </ul>
-            <h3>Javascript Specific</h3>
-            <ul class="skillset">
-              <li><span class="expand css3">prototype & scritp.aculo.us</span></li>
-              <li><span class="expand jquery">jQuery</span></li>
-			  <li><span class="expand html5">Canvas</span></li>
-              <li><span class="expand photoshop">RegExp</span></li>
-			  <li><span class="expand dreamweaver"></span><span class="expand" style="text-overflow:ellipsis; overflow:hidden; white-space:nowrap; width:97%;">Custom & Native Events (Including CSS3 Trans/Anim)</span></li>
-            </ul>
-			-->
+			<span id="skills" style="position:absolute; white-space:nowrap;">
+				<ul class="skillset">
+				  <li><span class="skill html5"><span></span></span><span>prototype & scritp.aculo.us</span></li>	
+				  <li><span class="skill html5"><span></span></span><span>jQuery</span></li>	
+				  <li><span class="skill html5"><span></span></span><span>Canvas</span></li>	
+				  <li><span class="skill html5"><span></span></span><span>RegExp</span></li>	
+				  <li><span class="skill html5"><span></span></span><span>Custom, Native, & CSS3 Events</span></li>	
+				</ul>
+				<ul class="skillset">
+				  <li><span class="skill css3"><span></span></span><span>nsIWindowsMediatorService</span></li>	
+				  <li><span class="skill css3"><span></span></span><span>nsIPromptService</span></li>	
+				  <li><span class="skill css3"><span></span></span><span>nsIHttpChannel</span></li>	
+				  <li><span class="skill css3"><span></span></span><span>cTypes</span></li>	
+				  <li><span class="skill css3"><span></span></span><span>Bootstrap</span></li>	
+				  <li><span class="skill css3"><span></span></span><span>nsIZipWriter</span></li>	
+				  <li><span class="skill css3"><span></span></span><span>nsIXMLHttpRequest, nsIXMLHttpRequestEventTarget, & nsIJSXMLHttpRequest</span></li>	
+				  <li><span class="skill css3"><span></span></span><span>nsITimer</span></li>	
+				</ul>
+				<ul class="skillset">
+				  <li><span class="skill css3"><span></span></span><span>CSS 3</span></li>
+				  <li><span class="skill html5"><span></span></span><span>HTML 5</span></li>
+				  <li><span class="skill git"><span></span></span><span>Git & GitHub</span></li>
+				  <li><span class="skill javascript"><span></span></span><span>Javascript</span></li>
+				  <li><span class="skill sql"><span></span></span><span>MySQL, SQL, SQLite</span></li>
+				  <li><span class="skill npp"><span></span></span><span>Notepad++</span></li>
+				  <li><span class="skill php"><span></span></span><span>PHP</span></li>
+				  <li><span class="skill vb"><span></span></span><span>Visual Basic 6.0 & VBA</span></li>
+				</ul>
+			</span>
           </div>
           <div class="content-3">
             <h2>Contact Me</h2>

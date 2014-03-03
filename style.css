@@ -10,23 +10,6 @@ ul.social_icons li a {
 	padding: 7px;
 }
 
-.content-2 h5 {
-	float: right;
-	font-size: 10.5px;
-	vertical-align: middle;
-	background-color: #F47564; /*#59c4bc;*/
-	padding: 0px 4px;
-	border-radius: 2px;
-	margin: 3px 3px 0 0;
-	color: #fff;
-	cursor: pointer;
-}
-
-.content-2 h5.selected {
-	background-color: #59c4bc;
-	color: #000;
-}
-
 h1, h2, h3, h4, h5, h6, h7 {
 	margin: 0;
 }
@@ -43,8 +26,8 @@ ul {
 }
 .pro_cover {
 	width:390px;
-	min-height:400px;
-	background:#fff url(img/cover.png) top center no-repeat;
+	height:400px;
+	background:#000 url(img/cover.png) top center no-repeat;
 	margin:100px auto 0;
 	text-align:center;
 	border-radius: 7px 7px 0 0;
@@ -92,8 +75,9 @@ ul {
 .skillset { 
 	list-style:none;
 	width:310px;
-	padding-left:0 !important;
+	padding-left:0 !important; /*i dont know why he set this to ipmortant*/
 	position: relative;
+	vertical-align: top;
 }
 
 .skillset li { 
@@ -128,7 +112,7 @@ ul {
 .skill { position:relative; display:block }
 .skill > span { width:100%; -moz-animation:anim-skill 2s ease-out; -webkit-animation:anim-skill 2s ease-out; }
 
-.css3 { width: 40%; }
+.css3 { width: 65%; }
 .css3 > span { background:#fed201; }
 .git { width: 25%; }
 .git > span { background:#E2A9F3; }
@@ -140,7 +124,7 @@ ul {
 .npp > span { background:#c6de64; }
 .php { width: 50%; }
 .php  > span { background:#5ac5bd; }
-.vb { width: 30%; }
+.vb { width: 40%; }
 .vb  > span { background:#FE9A2E; }
 .sql { width: 45%; }
 .sql  > span { background:#A9BCF5; }
@@ -152,14 +136,101 @@ ul {
 @-webkit-keyframes anim-skill { from {width:0px;} to  {width:100%} }
 @-o-keyframes anim-skill { from {width:0px;} to  {width:100%} }
 
+.skillset {
+	display: inline-block;
+	margin-right: 80px; /*the right and left padding that would normally be around just one skillset*/
+}
+
+.skillset:last-of-type {
+	margin-right: 0; /*because the default padding-right of the content-2 div will be at the right of this which is 40px so no need for margin on it*/
+}
+.content-2 h2 {
+	width: 310px; /*the width of pro-cover minus 40px padding left and right. otherwise the float doesnt happen right because content-2 width is width of just the h2 text*/
+}
+/*start h5*/
+.content-2  input[type=radio] {
+	position: absolute;
+	z-index: 1000;
+	cursor: pointer;
+	display: none;
+}
+
+.content-2 label {
+	cursor: pointer;
+	background: #F47564;
+	font-size: 10.5px;
+    float: right;
+	padding: 0 4px;
+	color: #fff;
+	border-radius: 2px;
+	margin: 3px 3px 0 0;
+	font-weight: bold;
+}
+.content-2 input:hover + label {
+	background: #59c4bc;
+}
+
+.content-2 label:first-of-type {
+    z-index: 3;
+    /*box-shadow: 2px 0 2px rgba(0,0,0,0.1);*/
+}
+
+.tab2-tab-label-2 {
+    z-index: 2;
+}
+
+.tab2-tab-label-3 {
+    z-index: 1;
+}
+
+.content-2 input:checked + label {
+    background: #59c4bc;
+	color: #000; /*#2c2c2c*/
+	z-index: 6;
+}
+/*
+.skillset {
+	opacity: 0;
+    -webkit-transition: opacity ease-out 0.2s 0.1s;
+    -moz-transition: opacity ease-out 0.2s 0.1s;
+    -o-transition: opacity ease-out 0.2s 0.1s;
+    -ms-transition: opacity ease-out 0.2s 0.1s;
+    transition: opacity ease-out 0.2s 0.1s;
+}
+
+.content-2 input.tab-2-tab-selector-1:checked ~ #skills > .skillset:nth-of-type(1),
+.content-2 input.tab-2-tab-selector-2:checked ~ #skills > .skillset:nth-of-type(2),
+.content-2 input.tab-2-tab-selector-3:checked ~ #skills > .skillset:nth-of-type(3),
+.content-2 input.tab-2-tab-selector-4:checked ~ #skills > .skillset:nth-of-type(4) {
+	z-index: 100;
+    -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+    filter: alpha(opacity=100);
+    opacity: 1;
+}
+*/
+#skills {
+	left: 0;
+    -webkit-transition: left cubic-bezier(1, 0, 0, 1) 0.2s;
+    -moz-transition: left cubic-bezier(1, 0, 0, 1) 0.2s;
+    -o-transition: left cubic-bezier(1, 0, 0, 1) 0.2s;
+    -ms-transition: left cubic-bezier(1, 0, 0, 1) 0.2s;
+    transition: left cubic-bezier(1, 0, 0, 1) 0.2s;
+}
+
+.content-2 input.tab-2-tab-selector-1:checked ~ #skills { left:-748px; }
+.content-2 input.tab-2-tab-selector-2:checked ~ #skills { left:-354px; }
+.content-2 input.tab-2-tab-selector-3:checked ~ #skills {  left:40px; }
+/*end h5*/
+/*end - my skills content*/
+
 .tabs {
     position: relative;
 	margin: 20px auto;
 	width: 390px;
-	border-radius: 0 0 7px 7px;
+	/*border-radius: 0 0 7px 7px;*/
 }
 
-.tabs input[type=radio] {
+.tabs > input[type=radio] {
 	position: absolute;
 	z-index: 1000;
 	width: 125px;
@@ -171,14 +242,14 @@ ul {
     filter: alpha(opacity=0);
 	cursor: pointer;
 }
-.tabs input#tab-2{
+.tabs > input#tab-2{
 	left: 133px;
 }
-.tabs input#tab-3{
+.tabs > input#tab-3{
 	left: 265px;
 }
 
-.tabs label {
+.tabs > label {
 	cursor: pointer;
 	background: #F47564;
 	font-size: 34px;
@@ -193,7 +264,7 @@ ul {
 	text-align: center;
 }
 
-.tabs label:after {
+.tabs > label:after {
     content: '';
 	background: #fff;
 	position: absolute;
@@ -204,13 +275,22 @@ ul {
 	display: block;
 }
 
-.tabs input:hover + label {
+.tabs > input:hover + label {
 	background: #59c4bc;
 }
-
-.tabs label:first-of-type {
+/*
+.tabs > label:first-of-type {
     z-index: 3;
     box-shadow: 2px 0 2px rgba(0,0,0,0.1);
+}
+*//*commented out this above but its orig maybe still relavent to my future betterment of the boxshadow on these tabs buttons*/
+.tabs {
+	overflow: hidden;
+}
+
+.tabs > label {
+    z-index: 3;
+    box-shadow: 0px -2px 2px 1px rgba(0, 0, 0, 0.05); /*box-shadow: 0px -2px 2px 2px rgba(0, 0, 0, 0.1);*/
 }
 
 .tab-label-2 {
@@ -221,7 +301,7 @@ ul {
     z-index: 1;
 }
 
-.tabs input:checked + label {
+.tabs > input:checked + label {
     background: #fff;
 	color:#2c2c2c;
 	z-index: 6;
@@ -238,6 +318,7 @@ ul {
     text-align: left;
     width: 100%;
     z-index: 5;
+	border-radius: 0 0 2px 2px;
 }
 
 .content div {
@@ -247,8 +328,6 @@ ul {
 	padding: 15px 40px;
 	z-index: 1;
     opacity: 0;
-	background:#fff;
-	border-radius: 0 0 2px 2px;
     -webkit-transition: opacity linear 0.1s;
     -moz-transition: opacity linear 0.1s;
     -o-transition: opacity linear 0.1s;
@@ -256,10 +335,10 @@ ul {
     transition: opacity linear 0.1s;
 }
 
-.tabs input.tab-selector-1:checked ~ .content .content-1,
-.tabs input.tab-selector-2:checked ~ .content .content-2,
-.tabs input.tab-selector-3:checked ~ .content .content-3,
-.tabs input.tab-selector-4:checked ~ .content .content-4 {
+.tabs > input.tab-selector-1:checked ~ .content .content-1,
+.tabs > input.tab-selector-2:checked ~ .content .content-2,
+.tabs > input.tab-selector-3:checked ~ .content .content-3,
+.tabs > input.tab-selector-4:checked ~ .content .content-4 {
 	z-index: 100;
     -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
     filter: alpha(opacity=100);
