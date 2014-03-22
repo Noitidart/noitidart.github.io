@@ -18,8 +18,9 @@
 				
 				if (last_tabs_radio == 'tab-selector-2' && tabs_radio == 'tab-selector-2') {
 					content.addClass('skillsetDelay');
-				} else {
-					content.removeClass('skillsetDelay');
+					content.one('transitionend webkitTransitionEnd oTransitionEnd otransitionend MSTransitionEnd', function() {
+						content.removeClass('skillsetDelay');
+					});
 				}
 				
 				var elsToAccountForHeight = [];
@@ -63,14 +64,51 @@
 				content.height(totalHeight);
 				last_tabs2_radio = tabs2_radio;
 				last_tabs_radio = tabs_radio;
-			}
-			
+				}
+
 			$( document ).ready(function() {
 				sizeContentToContents();
 				$('input[type=radio]').change(function() {
-					setTimeout(sizeContentToContents, 0);
+					sizeContentToContents();
 				});
+				
+				$("textarea").mousedown(function() {
+					$(document).on('mousemove', sizeContentToContents);
+					//todo: only add the mousemove if the users mouse coords are near the bottom right
+					//todo: need to remove mousemvoe on highlight as they are obviously not in highlight area
+				});
+				$("textarea").on('mouseleave', sizeContentToContents); //to handle if user dbl clicks the resizer, which restoes original dimensons to ta //tsted and cannot add this event during mousdown and rem on mouseup. as when it rems on mouseup it is rendered useless on the resizer dbl click
+				$("textarea").mouseup(function() {
+					$(document).off('mousemove', sizeContentToContents);
+					//sizeContentToContents();
+				});
+				$('form > *').removeAttr('disabled','false');
+				
+				$('form > .button').on('animationiteration', onsendbtnanimiter);
 			});
+			
+			var submitting;
+			function onsendbtnanimiter() {
+				if (!submitting) {
+					//do it this way because we want to stop animation after sendingComplete AND iteration complete
+					$('form').removeClass('sending');
+					$('form')[0].reset();
+					$('form > *').removeAttr('disabled','false');
+					//if no errors then reset form and notify success else notify issue
+				}
+			}
+			
+			function sendForm() {
+				//animationiteration
+				submitting = true;
+				$('form').addClass('sending');
+				$('form > *').attr('disabled','true');
+				
+				setTimeout(function() {
+					submitting = false;
+				}, 2000);
+			}
+			
 		</script>
 		<script type="text/javascript">
 			var _gaq = _gaq || [];
@@ -167,7 +205,7 @@
               <input id="" class="inputbox" type="text" placeholder="Your Name" />
               <input id="" class="inputbox" type="text" placeholder="Your Email" />
               <textarea id="" class="message_box" type="textarea" placeholder="Message"></textarea>
-			  <a href="#" onclick="return false" class="button">SEND</a>
+			  <a href="#" onclick="sendForm();return false" draggable="false" class="button"></a>
             </form>
           </div>
         </div>
