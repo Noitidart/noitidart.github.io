@@ -333,7 +333,11 @@ ul {
     width: 100%;
     z-index: 5;
 	border-radius: 0 0 2px 2px;
-	transition: height linear 0.1s;
+	transition: height linear 0.1s; /*for skillset need to use delay of 0.4s*/
+}
+
+.skillsetDelay { /*for use to apply to content*/
+	transition: height linear 0.1s 0.5s; /*for skillset need to use delay of 0.4s*/
 }
 
 .content div {

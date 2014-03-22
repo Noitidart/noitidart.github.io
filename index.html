@@ -9,58 +9,66 @@
 		<link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,400,600,700' rel='stylesheet' type='text/css'>
 		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
 		<script>
-			/*
-			window.addEventListener('DOMContentLoaded', function() {
-				window.removeEventListener('DOMContentLoaded', arguments.callee, false);
-				sizeContent(true);
-			}, false);
-			
-			function sizeContent(noAnim) {
-				var content = document.querySelector('.content');
-				var contents = document.querySelectorAll('.content div');
-				var skillsets = document.querySelectorAll('.content div:nth-of-type(2) .skillset');
+			var last_tabs_radio;
+			var last_tabs2_radio;
+			function sizeContentToContents() {
+				var tabs_radio = $('input[name=radio-set]:checked').attr('class');
+				var tabs2_radio = $('input[name=tab-2-radio-set]:checked').attr('class');
+				var content = $('.content');
 				
-				for (var i=0; i<contents.length; i++) {
-					var 
-					if (contents[i].style.opacity == 1) {
-						content.style.height = contents[i].offsetHeight + 'px';
-						alert('done');
-						break;
-					}
+				if (last_tabs_radio == 'tab-selector-2' && tabs_radio == 'tab-selector-2') {
+					content.addClass('skillsetDelay');
+				} else {
+					content.removeClass('skillsetDelay');
 				}
+				
+				var elsToAccountForHeight = [];
+				switch (tabs_radio) {
+					case 'tab-selector-1':
+						elsToAccountForHeight.push($('.content-1'));
+						break;
+					case 'tab-selector-2':
+						elsToAccountForHeight.push($('.content-2'));
+						switch (tabs2_radio) {
+							case 'tab-2-tab-selector-1':
+								elsToAccountForHeight.push($('.skillset:nth-of-type(1)'));
+								break;
+							case 'tab-2-tab-selector-2':
+								elsToAccountForHeight.push($('.skillset:nth-of-type(2)'));
+								break;
+							case 'tab-2-tab-selector-3':
+								elsToAccountForHeight.push($('.skillset:nth-of-type(3)'));
+								break;
+							default:
+								alert('unsupported tabs2_radio');
+						}
+						break;
+					case 'tab-selector-3':
+						elsToAccountForHeight.push($('.content-3'));
+						break;
+					default:
+						alert('unsupported tabs_radio');
+				}
+				
+				var totalHeight = 0;
+				$.each(elsToAccountForHeight, function(i, el) {
+					var contentsHeight = parseInt(el.css('height'));
+					var paddingTop = parseInt(el.css('padding-top'));
+					var paddingBtm = parseInt(el.css('padding-bottom'));
+					var marginTop = parseInt(el.css('margin-top'));
+					var marginBtm = parseInt(el.css('margin-bottom'));
+					totalHeight += contentsHeight + paddingTop + paddingBtm + marginTop + marginBtm;
+				});
+				
+				content.height(totalHeight);
+				last_tabs2_radio = tabs2_radio;
+				last_tabs_radio = tabs_radio;
 			}
-			*/
 			
 			$( document ).ready(function() {
-				var content = $('.content');
-				$('.content div').each(function(i, div) {
-					var div = $(div);
-					if (div.css('opacity') == 1) {
-						var contentsContentHeight = parseInt(div.css('height'));
-						var contentsPaddingTop = parseInt(div.css('padding-top'));
-						var contentsPaddingBottom = parseInt(div.css('padding-bottom'));
-						var contentsMarginTop = parseInt(div.css('margin-top'));
-						var contentsMarginBottom = parseInt(div.css('margin-bottom'));
-						var contentsTotalHeight = contentsContentHeight + contentsPaddingTop + contentsPaddingBottom + contentsMarginTop + contentsMarginBottom;
-						
-						if (div.hasClass('content-2')) {
-							$('.skillset').each(function(j, skillset) {
-								skillset = $(skillset);
-								if (skillset.css('visibility') == 'visible') {
-									var skillsetContentHeight = parseInt(skillset.css('height'));
-									var skillsetMarginTop = parseInt(skillset.css('margin-top'));
-									var skillsetPaddingTop = parseInt(skillset.css('padding-top'));
-									var skillsetTotalHeight = skillsetContentHeight + skillsetMarginTop + skillsetPaddingTop; //no *2 here because i set marginBottom to 0
-									contentsTotalHeight += skillsetTotalHeight;
-									return false;
-								}
-							});
-						}
-						
-						content.height(contentsTotalHeight);
-						//alert('done');
-						return false; //break
-					}
+				sizeContentToContents();
+				$('input[type=radio]').change(function() {
+					setTimeout(sizeContentToContents, 0);
 				});
 			});
 		</script>
