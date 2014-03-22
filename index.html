@@ -38,33 +38,31 @@
 					if (div.css('opacity') == 1) {
 						var contentsContentHeight = parseInt(div.css('height'));
 						var contentsPaddingTop = parseInt(div.css('padding-top'));
-						var contentsTotalHeight = contentsContentHeight + contentsPaddingTop * 2;
+						var contentsPaddingBottom = parseInt(div.css('padding-bottom'));
+						var contentsMarginTop = parseInt(div.css('margin-top'));
+						var contentsMarginBottom = parseInt(div.css('margin-bottom'));
+						var contentsTotalHeight = contentsContentHeight + contentsPaddingTop + contentsPaddingBottom + contentsMarginTop + contentsMarginBottom;
 						
 						if (div.hasClass('content-2')) {
-							var skills = $('.skillset:nth-of-type(1)');
-							var skillsContentHeight = parseInt(skills.css('height'));
-							var skillsPaddingTop = parseInt(skills.css('padding-top'));
-							var skillsTotalHeight = skillsContentHeight + skillsPaddingTop * 2;
-							contentsTotalHeight += skillsTotalHeight;
+							$('.skillset').each(function(j, skillset) {
+								skillset = $(skillset);
+								if (skillset.css('visibility') == 'visible') {
+									var skillsetContentHeight = parseInt(skillset.css('height'));
+									var skillsetMarginTop = parseInt(skillset.css('margin-top'));
+									var skillsetPaddingTop = parseInt(skillset.css('padding-top'));
+									var skillsetTotalHeight = skillsetContentHeight + skillsetMarginTop + skillsetPaddingTop; //no *2 here because i set marginBottom to 0
+									contentsTotalHeight += skillsetTotalHeight;
+									return false;
+								}
+							});
 						}
 						
 						content.height(contentsTotalHeight);
-						alert('done');
+						//alert('done');
 						return false; //break
 					}
 				});
-				
-				$('.skill > span').each(function(i, skillbar) {
-					
-					skillbar.addEventListener( 'webkitAnimationEnd', removeAnim, true );
-					skillbar.addEventListener( 'animationend', removeAnim, true );
-					skillbar.addEventListener( 'oAnimationEnd', removeAnim, true );
-				});
 			});
-			
-			function removeAnim(e) {
-				e.target.setAttribute('style', '-moz-animation:none; -webkit-animation:none; -o-animation:none; animation:none;');
-			}
 		</script>
 		<script type="text/javascript">
 			var _gaq = _gaq || [];
@@ -85,7 +83,7 @@
     <div class="pro_cover"> 
       <img src="img/avatar.jpg" class="pro_dp" /> <span class="name">Noitidart</span>
       <p class="tw-name">Firefox Addon Developer</p>
-      <ul class="social_icons">
+      <ul class="my_resources">
 		<li><a href="https://gist.github.com/Noitidart"><i class="icon-gist"></i></a></li>
 		<li><a href="https://github.com/Noitidart/"><i class="icon-github"></i></a></li>
 		<li><a href="http://stackoverflow.com/users/1828637/noitidart"><i class="icon-stackoverflow"></i></a></li>
@@ -160,7 +158,7 @@
             <form class="form-wrapper-01">
               <input id="" class="inputbox" type="text" placeholder="Your Name" />
               <input id="" class="inputbox" type="text" placeholder="Your Email" />
-              <textarea id="" class="message_box" type="textarea" placeholder="Message" ></textarea>
+              <textarea id="" class="message_box" type="textarea" placeholder="Message"></textarea>
 			  <a href="#" onclick="return false" class="button">SEND</a>
             </form>
           </div>

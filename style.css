@@ -1,9 +1,9 @@
 @charset "utf-8";
 /* CSS Document */
-ul.social_icons li a {
+ul.my_resources li a {
 	transition: opacity 0.1s;
 }
-.social_icons i {
+.my_resources i {
 	border-radius: 50%;
 	color: #000;
 	background-color: #FFF;
@@ -51,23 +51,23 @@ ul {
     	margin: -20% 24% 5%;
     	width: 150px;
 		}
-	ul.social_icons {
+	ul.my_resources {
 		list-style:none;
 		cursor: default;
 		}
-	ul.social_icons li{
+	ul.my_resources li{
 		display:inline-block;
 		margin:0 12px;
 		font-size:16px;
 		line-height: 46px;
 		}
-	ul.social_icons li a {
+	ul.my_resources li a {
 		text-decoration:none;
 		outline:none;
 		opacity:0.8;
 		color:#fff;
 		}
-	ul.social_icons li a:hover {
+	ul.my_resources li a:hover {
 		opacity:1;
 		}
 		
@@ -85,6 +85,10 @@ ul {
 	background:#eaedf2; 
 	height:30px; 
 	border-radius:3px; 
+}
+
+.skillset li:last-of-type { 
+	margin-bottom:0;
 }
 
 .skillset li em { 
@@ -110,7 +114,7 @@ ul {
 	text-indent:5px;
 }
 .skill { position:relative; display:block }
-.skill > span { width:100%; -moz-animation:anim-skill 2s ease-out; -webkit-animation:anim-skill 2s ease-out; -o-animation:anim-skill 2s ease-out; animation:anim-skill 2s ease-out;}
+.skill > span { width:100%; } /*-moz-animation:anim-skill 2s ease-out; -webkit-animation:anim-skill 2s ease-out; -o-animation:anim-skill 2s ease-out; animation:anim-skill 2s ease-out;*/
 
 .css3 { width: 65%; }
 .css3 > span { background:#fed201; }
@@ -206,30 +210,30 @@ ul {
 */
 .skillset {
 	left: 40px;
-	top: -500px;
+	visibility: hidden;
 	/*
     -webkit-transition: left cubic-bezier(1, 0, 0, 1) 0.2s;
     -moz-transition: left cubic-bezier(1, 0, 0, 1) 0.2s;
     -o-transition: left cubic-bezier(1, 0, 0, 1) 0.2s;
     -ms-transition: left cubic-bezier(1, 0, 0, 1) 0.2s;*/
-    transition: left cubic-bezier(1, 0, 0, 1) 1s, top linear 0s 1s;
+    transition: left cubic-bezier(1, 0, 0, 1) 1s, visibility linear 0s 1s;
 	
 }
 
-.content-2 input.tab-2-tab-selector-1:checked ~ .skillset:nth-of-type(1) { left:40px; top:43px;transition: left cubic-bezier(1, 0, 0, 1) 1s, top linear 0s 0s;}
-.content-2 input.tab-2-tab-selector-1:checked ~ .skillset:nth-of-type(1) .skill > span { -moz-animation:anim-skill 2s ease-out !important; }
+.content-2 input.tab-2-tab-selector-1:checked ~ .skillset:nth-of-type(1) { left:40px;visibility: visible;transition: left cubic-bezier(1, 0, 0, 1) 1s, visibility linear 0s 0s;}
+.tabs > input.tab-selector-2:checked ~ .content .content-2 input.tab-2-tab-selector-1:checked ~ .skillset:nth-of-type(1) .skill > span { -moz-animation:anim-skill 2s ease-out } /*this anim also runs on load*/
 .content-2 input.tab-2-tab-selector-1:checked ~ .skillset:nth-of-type(2) { left:-350px;}
 .content-2 input.tab-2-tab-selector-1:checked ~ .skillset:nth-of-type(3) { left:-350px;}
 
 .content-2 input.tab-2-tab-selector-2:checked ~ .skillset:nth-of-type(1) { left:430px;}
-.content-2 input.tab-2-tab-selector-2:checked ~ .skillset:nth-of-type(2) { left:40px; top:43px;transition: left cubic-bezier(1, 0, 0, 1) 1s, top linear 0s 0s;}
-.content-2 input.tab-2-tab-selector-2:checked ~ .skillset:nth-of-type(2)  .skill > span { -moz-animation:anim-skill 2s ease-out !important; }
+.content-2 input.tab-2-tab-selector-2:checked ~ .skillset:nth-of-type(2) { left:40px;visibility: visible;transition: left cubic-bezier(1, 0, 0, 1) 1s, visibility linear 0s 0s;}
+.tabs > input.tab-selector-2:checked ~ .content .content-2 input.tab-2-tab-selector-2:checked ~ .skillset:nth-of-type(2)  .skill > span { -moz-animation:anim-skill 2s ease-out; }
 .content-2 input.tab-2-tab-selector-2:checked ~ .skillset:nth-of-type(3) { left:-350px;}
 
 .content-2 input.tab-2-tab-selector-3:checked ~ .skillset:nth-of-type(1) { left:430px;}
 .content-2 input.tab-2-tab-selector-3:checked ~ .skillset:nth-of-type(2) { left:430px;}
-.content-2 input.tab-2-tab-selector-3:checked ~ .skillset:nth-of-type(3) { left:40px; top:43px;transition: left cubic-bezier(1, 0, 0, 1) 1s, top linear 0s 0s;}
-.content-2 input.tab-2-tab-selector-3:checked ~ .skillset:nth-of-type(3)  .skill > span { -moz-animation:anim-skill 2s ease-out !important; }
+.content-2 input.tab-2-tab-selector-3:checked ~ .skillset:nth-of-type(3) { left:40px;visibility: visible;transition: left cubic-bezier(1, 0, 0, 1) 1s, visibility linear 0s 0s;}
+.tabs > input.tab-selector-2:checked ~ .content .content-2 input.tab-2-tab-selector-3:checked ~ .skillset:nth-of-type(3)  .skill > span { -moz-animation:anim-skill 2s ease-out; }
 
 /*end h5*/
 /*end - my skills content*/
@@ -329,13 +333,14 @@ ul {
     width: 100%;
     z-index: 5;
 	border-radius: 0 0 2px 2px;
+	transition: height linear 0.1s;
 }
 
 .content div {
     position: absolute;
 	top: 0;
 	left: 0;
-	padding: 15px 40px;
+	padding: 15px 40px 30px 40px;
 	z-index: 1;
     opacity: 0;
     -webkit-transition: opacity linear 0.1s;
@@ -370,6 +375,9 @@ ul {
     line-height: 22px;
     margin: 0 0 10px 0;
 	text-align: left;
+}
+.content div > *:last-child { /*should be last-child that is not position:absolute, its ok though, the last ul in content-2, the last skillset is getting margin-bottom 0 its fine though because i have to give all skillsets margin-bottom of 0 but i have to leave that .skilset:last-of-type {margin-bottom:0} intact*/
+	margin-bottom: 0 !important;
 }
 
 
