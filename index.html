@@ -8,6 +8,64 @@
 		<script type="text/javascript" src="js/modernizr.custom.04022.js"></script>
 		<link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,400,600,700' rel='stylesheet' type='text/css'>
 		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+		<script>
+			/*
+			window.addEventListener('DOMContentLoaded', function() {
+				window.removeEventListener('DOMContentLoaded', arguments.callee, false);
+				sizeContent(true);
+			}, false);
+			
+			function sizeContent(noAnim) {
+				var content = document.querySelector('.content');
+				var contents = document.querySelectorAll('.content div');
+				var skillsets = document.querySelectorAll('.content div:nth-of-type(2) .skillset');
+				
+				for (var i=0; i<contents.length; i++) {
+					var 
+					if (contents[i].style.opacity == 1) {
+						content.style.height = contents[i].offsetHeight + 'px';
+						alert('done');
+						break;
+					}
+				}
+			}
+			*/
+			
+			$( document ).ready(function() {
+				var content = $('.content');
+				$('.content div').each(function(i, div) {
+					var div = $(div);
+					if (div.css('opacity') == 1) {
+						var contentsContentHeight = parseInt(div.css('height'));
+						var contentsPaddingTop = parseInt(div.css('padding-top'));
+						var contentsTotalHeight = contentsContentHeight + contentsPaddingTop * 2;
+						
+						if (div.hasClass('content-2')) {
+							var skills = $('.skillset:nth-of-type(1)');
+							var skillsContentHeight = parseInt(skills.css('height'));
+							var skillsPaddingTop = parseInt(skills.css('padding-top'));
+							var skillsTotalHeight = skillsContentHeight + skillsPaddingTop * 2;
+							contentsTotalHeight += skillsTotalHeight;
+						}
+						
+						content.height(contentsTotalHeight);
+						alert('done');
+						return false; //break
+					}
+				});
+				
+				$('.skill > span').each(function(i, skillbar) {
+					
+					skillbar.addEventListener( 'webkitAnimationEnd', removeAnim, true );
+					skillbar.addEventListener( 'animationend', removeAnim, true );
+					skillbar.addEventListener( 'oAnimationEnd', removeAnim, true );
+				});
+			});
+			
+			function removeAnim(e) {
+				e.target.setAttribute('style', '-moz-animation:none; -webkit-animation:none; -o-animation:none; animation:none;');
+			}
+		</script>
 		<script type="text/javascript">
 			var _gaq = _gaq || [];
 			_gaq.push(['_setAccount', 'UA-48501852-1']);
@@ -68,13 +126,15 @@
 			<input id="tab-2-tab-3" type="radio" name="tab-2-radio-set" class="tab-2-tab-selector-3" />
 			<label for="tab-2-tab-3" class="tab-2-tab-label-3">Javascript</label>
 			<h2>My Skills</h2>
-			<span id="skills" style="position:absolute; white-space:nowrap;">
 				<ul class="skillset">
-				  <li><span class="skill html5"><span></span></span><span>prototype & scritp.aculo.us</span></li>	
-				  <li><span class="skill html5"><span></span></span><span>jQuery</span></li>	
-				  <li><span class="skill html5"><span></span></span><span>Canvas</span></li>	
-				  <li><span class="skill html5"><span></span></span><span>RegExp</span></li>	
-				  <li><span class="skill html5"><span></span></span><span>Custom, Native, & CSS3 Events</span></li>	
+				  <li><span class="skill css3"><span></span></span><span>CSS 3</span></li>
+				  <li><span class="skill html5"><span></span></span><span>HTML 5</span></li>
+				  <li><span class="skill git"><span></span></span><span>Git &amp; GitHub</span></li>
+				  <li><span class="skill javascript"><span></span></span><span>Javascript</span></li>
+				  <li><span class="skill sql"><span></span></span><span>MySQL, SQL, SQLite</span></li>
+				  <li><span class="skill npp"><span></span></span><span>Notepad++</span></li>
+				  <li><span class="skill php"><span></span></span><span>PHP</span></li>
+				  <li><span class="skill vb"><span></span></span><span>Visual Basic 6.0 &amp; VBA</span></li>
 				</ul>
 				<ul class="skillset">
 				  <li><span class="skill css3"><span></span></span><span>nsIWindowsMediatorService</span></li>	
@@ -83,20 +143,17 @@
 				  <li><span class="skill css3"><span></span></span><span>cTypes</span></li>	
 				  <li><span class="skill css3"><span></span></span><span>Bootstrap</span></li>	
 				  <li><span class="skill css3"><span></span></span><span>nsIZipWriter</span></li>	
-				  <li><span class="skill css3"><span></span></span><span>nsIXMLHttpRequest, nsIXMLHttpRequestEventTarget, & nsIJSXMLHttpRequest</span></li>	
+				  <li><span class="skill css3"><span></span></span><span>nsIXMLHttpRequest, nsIXMLHttpRequestEventTarget, &amp; nsIJSXMLHttpRequest</span></li>	
 				  <li><span class="skill css3"><span></span></span><span>nsITimer</span></li>	
 				</ul>
 				<ul class="skillset">
-				  <li><span class="skill css3"><span></span></span><span>CSS 3</span></li>
-				  <li><span class="skill html5"><span></span></span><span>HTML 5</span></li>
-				  <li><span class="skill git"><span></span></span><span>Git & GitHub</span></li>
-				  <li><span class="skill javascript"><span></span></span><span>Javascript</span></li>
-				  <li><span class="skill sql"><span></span></span><span>MySQL, SQL, SQLite</span></li>
-				  <li><span class="skill npp"><span></span></span><span>Notepad++</span></li>
-				  <li><span class="skill php"><span></span></span><span>PHP</span></li>
-				  <li><span class="skill vb"><span></span></span><span>Visual Basic 6.0 & VBA</span></li>
+				  <li><span class="skill html5"><span></span></span><span>prototype &amp; scritp.aculo.us</span></li>	
+				  <li><span class="skill html5"><span></span></span><span>jQuery</span></li>	
+				  <li><span class="skill html5"><span></span></span><span>Canvas</span></li>	
+				  <li><span class="skill html5"><span></span></span><span>RegExp</span></li>	
+				  <li><span class="skill html5"><span></span></span><span>Custom, Native, &amp; CSS3 Events</span></li>	
 				</ul>
-			</span>
+			
           </div>
           <div class="content-3">
             <h2>Contact Me</h2>
