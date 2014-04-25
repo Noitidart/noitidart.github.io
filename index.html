@@ -104,8 +104,9 @@
 				}
 			}
 			
-			var sendSuccess = false;
-			function sendForm() {
+			var sendSuccess;
+			var timeoutTime = 10; //in seconds
+			function sendForm(noTimeout) {
 				//animationiteration
 				submitting = true;
 				$('form').addClass('sending');
@@ -124,13 +125,14 @@
 				
 				$('form > *').attr('disabled','true');
 				
-				console.log('serializedData',serializedData);
+				//console.log('serializedData',serializedData);
 				sendSuccess = false;
 				$.ajax({
 						url: "http://noitidart.herobo.com/mail.php",
 						type: "post",
 						data: data,
 						dataType: 'json',
+						timeout: noTimeout ? null : timeoutTime * 1000,
 						// callback handler that will be called on success
 						success: function(response, textStatus, jqXHR){
 							// log a message to the console
@@ -146,12 +148,19 @@
 						// which means, either on success or error
 						complete: function(e) {
 							// enable the inputs
-							console.log(e);
+							//console.log(e);
 							submitting = false;
 							//alert('complete');
 						},
-						error: function() {
-							alert('An error occured while trying to send the message. Usually the server goes down, as I use a free webhost, try again in like 5 minutes, or send me an email at noitidart@gmail.com! ');
+						error: function(xmlhttprequest, textstatus, message) {
+							if (textstatus === 'timeout') {
+								submitting = false; //so the css anim is stopped, otherwise no need for this, as the complete function always gets called
+								if (confirm('The message is taking longer than ' + timeoutTime + ' seconds to send so it canceled. Would you like to remove timeout and send message again? (If you choose to cancel you can still reach me by emailing me at noitidart@gmail.com! I use a free web server so uptime and speed are issues.)')) {
+									sendForm(true);
+								}
+							} else {
+								alert('A server error occured while trying to send the message. I use a free web server so uptime and speed are issues. You can try again in 5 minutes, or send me an email at noitidart@gmail.com!\n\nThe server response was:\n-------------\n' + message);
+							}
 						}
 				});
 				
