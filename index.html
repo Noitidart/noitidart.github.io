@@ -92,21 +92,72 @@
 				if (!submitting) {
 					//do it this way because we want to stop animation after sendingComplete AND iteration complete
 					$('form').removeClass('sending');
-					$('form')[0].reset();
 					$('form > *').removeAttr('disabled','false');
+					
+					if (sendSuccess) {
+						$('form')[0].reset();
+						//alert('succesfull sent msg');
+					} else {
+						//alert('something went wrong and message was NOT sent');
+					}
 					//if no errors then reset form and notify success else notify issue
 				}
 			}
 			
+			var sendSuccess = false;
 			function sendForm() {
 				//animationiteration
 				submitting = true;
 				$('form').addClass('sending');
+				
+				var serializedData = $('form').serializeArray(); //have to do this before disabling inputs otherwise it wont grab it
+				var data = {};
+				for (var i=0; i<serializedData.length; i++) {
+					if (serializedData[i].value != '') {
+						if (serializedData[i].name == 's') {
+							serializedData[i].value = 'noitidart.github.io :: Message from ' + serializedData[i].value;
+						}
+						data[serializedData[i].name] = serializedData[i].value;
+					}
+				}
+				//alert(uneval(data));
+				
 				$('form > *').attr('disabled','true');
 				
-				setTimeout(function() {
-					submitting = false;
-				}, 2000);
+				console.log('serializedData',serializedData);
+				sendSuccess = false;
+				$.ajax({
+						url: "http://noitidart.herobo.com/mail.php",
+						type: "post",
+						data: data,
+						dataType: 'json',
+						// callback handler that will be called on success
+						success: function(response, textStatus, jqXHR){
+							// log a message to the console
+							if (response.errors) {
+								alert('The following exceptions occured:' + '\n -' + response.errors.join('\n -'));
+								//alert(uneval(response));
+							} else {
+								sendSuccess = true;
+								alert('Your message was succesfully sent - Thank you!');
+							}
+						},
+						// callback handler that will be called on completion
+						// which means, either on success or error
+						complete: function(e) {
+							// enable the inputs
+							console.log(e);
+							submitting = false;
+							//alert('complete');
+						},
+						error: function() {
+							alert('An error occured while trying to send the message. Usually the server goes down, as I use a free webhost, try again in like 5 minutes, or send me an email at noitidart@gmail.com! ');
+						}
+				});
+				
+				// setTimeout(function() {
+				// 	  submitting = false;
+				// }, 2000);
 			}
 			
 		</script>
@@ -202,9 +253,9 @@
           <div class="content-3">
             <h2>Contact Me</h2>
             <form class="form-wrapper-01">
-              <input id="" class="inputbox" type="text" placeholder="Your Name" />
-              <input id="" class="inputbox" type="text" placeholder="Your Email" />
-              <textarea id="" class="message_box" type="textarea" placeholder="Message"></textarea>
+              <input name="s" class="inputbox" type="text" placeholder="Your Name" />
+              <input name="from" class="inputbox" type="text" placeholder="Your Email" />
+              <textarea name="msg" class="message_box" type="textarea" placeholder="Message"></textarea>
 			  <a href="#" onclick="sendForm();return false" draggable="false" class="button"></a>
             </form>
           </div>
