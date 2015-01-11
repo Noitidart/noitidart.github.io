@@ -15,8 +15,8 @@
 .icon-google-circles:before { content: '\e80d'; } /* '' */
 .icon-pinterest:before { content: '\e80c'; } /* '' */
 .icon-user:before { content: '\e814'; } /* '' */
-.icon-github:before { content: '\e805'; } /* '' */
+.icon-gh:before { content: '\e805'; } /* '' */
 .icon-git:before { content: '\e803'; } /* '' */
-.icon-github-circled:before { content: '\e804'; } /* '' */
+.icon-gh-circled:before { content: '\e804'; } /* '' */
 .icon-paper-plane:before { content: '\e80e'; } /* '' */
 .icon-twitter:before { content: '\e80b'; } /* '' */
