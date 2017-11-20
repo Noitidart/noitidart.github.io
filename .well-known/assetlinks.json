@@ -1,0 +1,9 @@
+[{
+  "relation": ["delegate_permission/common.handle_all_urls"],
+  "target": {
+    "namespace": "android_app",
+    "package_name": "com.trustedfamily",
+    "sha256_cert_fingerprints":
+    ["1B:F4:BA:26:03:9C:20:AC:10:42:02:29:DB:50:80:DA:9D:93:C9:36:F8:64:3F:A4:BC:9E:F7:C3:77:AD:FF:31"]
+  }
+}]
